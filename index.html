@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free Word Counter - Count Words & Characters</title>
+
+  <meta name="description" content="Free online word counter and character counter. Quickly count words and characters in your text. Simple, fast and easy to use.">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3587431410795318"
+       crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #1f4f8f;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 280px;
+      padding: 15px;
+      font-size: 17px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #1f4f8f;
+    }
+
+    .stats {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 150px;
+      background: #f1f5fa;
+      padding: 18px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 7px;
+      background: #1f4f8f;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .info {
+      margin-top: 30px;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+      background: white;
+    }
+
+    footer a {
+      color: #1f4f8f;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 26px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      textarea {
+        min-height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Free Word Counter</h1>
+    <p>Count words and characters quickly and easily</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+
+      <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+
+      <div class="stats">
+        <div class="stat">
+          <strong id="wordCount">0</strong>
+          Words
+        </div>
+
+        <div class="stat">
+          <strong id="charCount">0</strong>
+          Characters
+        </div>
+      </div>
+
+      <button onclick="clearText()">Clear Text</button>
+
+      <div class="info">
+        <h2>Free Online Word Counter</h2>
+
+        <p>
+          Use our free word counter to quickly count the number of
+          words and characters in your text. This tool is useful for
+          students, writers, bloggers, teachers, and anyone who needs
+          to check text length.
+        </p>
+
+        <h2>How to Use</h2>
+
+        <p>
+          Simply type or paste your text into the box above. Your word
+          count and character count will update automatically.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="about.html">About</a>
+    |
+    <a href="contact.html">Contact</a>
+    |
+    <a href="privacy.html">Privacy Policy</a>
+
+    <p>© 2026 Free Word Counter. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const textInput = document.getElementById("textInput");
+    const wordCount = document.getElementById("wordCount");
+    const charCount = document.getElementById("charCount");
+
+    textInput.addEventListener("input", function () {
+      const text = textInput.value;
+
+      const words = text.trim() === ""
+        ? 0
+        : text.trim().split(/\s+/).length;
+
+      wordCount.textContent = words;
+      charCount.textContent = text.length;
+    });
+
+    function clearText() {
+      textInput.value = "";
+      wordCount.textContent = "0";
+      charCount.textContent = "0";
+    }
+  </script>
+
+</body>
+</html>
